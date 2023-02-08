@@ -20,18 +20,7 @@ public class Controller {
 	private HauptfensterListener lsn_hauptfenster;
 	
 	
-	/**public Controller() {
-		
-	
-		//Hauptfenster laden ( initialieren
-		hauptfenster = FrmHauptfenster.init();
-		//Listener-Objekte in den Speicher laden
-		model= new TurnierVerwaltung(this);
-		//Model-Objekt in den Speicher laden
-		lsn_hauptfenster=new HauptfensterListener();
-		//listener an die entsprechenden views weitergeben
-		hauptfenster.addActionListenerToForm(lsn_hauptfenster);
-*/	}
+
 	
 
 	//innere Klasse, welche den action-listener für frmhauptfenster bereit stellt

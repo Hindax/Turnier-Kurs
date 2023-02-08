@@ -19,7 +19,6 @@ public class FrmHauptfenster {
 
 	private JFrame frame;
 	private JTable table;
-	private JTable table_1;
 	private JButton btnTurnierAnlegen;
 	private JButton btnTurnierLabel;
 	private JLabel lbStatus;
@@ -76,7 +75,7 @@ public class FrmHauptfenster {
 		frame.getContentPane().add(table);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(101, 160, 570, 181);
+		scrollPane.setBounds(112, 169, 559, 172);
 		frame.getContentPane().add(scrollPane);
 		
 		table_1 = new JTable();
