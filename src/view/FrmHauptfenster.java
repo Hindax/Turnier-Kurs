@@ -1,7 +1,7 @@
 package view;
 
 import java.awt.EventQueue;
-
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -12,27 +12,24 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class FrmHauptfenster {
 
 	private JFrame frame;
-	private JTable table;
+	private JTable tbl_Turniere;
 	private JButton btnTurnierAnlegen;
-	private JButton btnTurnierLabel;
-	private JLabel lbStatus;
+	private JButton btnTurniereLaden;
+	private JLabel lblStatus;
 	private ActionListener actionListener;
-
+	
 	/**
-	 * Load the window externally.
+	 * Load the Window externally
 	 */
 	public static FrmHauptfenster init() {
 		FrmHauptfenster window = new FrmHauptfenster();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrmHauptfenster window = new FrmHauptfenster();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +40,7 @@ public class FrmHauptfenster {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the window.
 	 */
 	public FrmHauptfenster() {
 		initialize();
@@ -54,49 +51,54 @@ public class FrmHauptfenster {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 793, 491);
+		frame.setBounds(100, 100, 721, 598);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		btnTurnierAnlegen = new JButton("Turnier anlegen");
-		btnTurnierAnlegen.setBounds(101, 22, 116, 100);
+		btnTurnierAnlegen.setBounds(83, 28, 146, 133);
 		frame.getContentPane().add(btnTurnierAnlegen);
 		
-		btnTurnierLabel = new JButton("Turniere laden");
-		btnTurnierLabel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnTurnierLabel.setBounds(541, 24, 130, 96);
-		frame.getContentPane().add(btnTurnierLabel);
-		
-		table = new JTable();
-		table.setBounds(332, 323, 148, -52);
-		frame.getContentPane().add(table);
+		btnTurniereLaden = new JButton("Turniere laden");
+		btnTurniereLaden.setBounds(457, 28, 146, 133);
+		frame.getContentPane().add(btnTurniereLaden);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(112, 169, 559, 172);
+		scrollPane.setBounds(83, 240, 520, 192);
 		frame.getContentPane().add(scrollPane);
 		
-		table_1 = new JTable();
-		scrollPane.setViewportView(table_1);
+		tbl_Turniere = new JTable();
+		scrollPane.setViewportView(tbl_Turniere);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Meldungen", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(58, 380, 644, 45);
+		panel.setBounds(16, 487, 672, 55);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		lbStatus = new JLabel("");
-		lbStatus.setBounds(10, 22, 632, 23);
-		panel.add(lbStatus);
+		lblStatus = new JLabel("");
+		lblStatus.setBounds(6, 16, 660, 33);
+		panel.add(lblStatus);
+		
+		
 	}
-	//Methode, welche  von außen einen listener entgegen nimmt, und dieser den jeweiligen buttons zuordnet
+	
+	//methode, welche von außen einen listener entgegen nimmt, und diesen den jeweiligen buttons zuordnet
 	public void addActionListenerToForm(ActionListener listener) {
-		this.actionListener = listener;
+		this.actionListener=listener;
 		btnTurnierAnlegen.addActionListener(listener);
-		btnTurnierLabel.addActionListener(listener);
+		btnTurniereLaden.addActionListener(listener);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
-
-
